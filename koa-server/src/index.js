@@ -10,3 +10,8 @@ app
   .use(bodyParser())
   .use(router.routes())
   .use(router.allowedMethods());
+
+app.listen(3002)
+
+
+export default app;
