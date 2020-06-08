@@ -1,11 +1,15 @@
 import Koa from "koa"
-import router from "./router";
+import demo from "./controllers/demo";
 import bodyParser from 'koa-bodyparser';
 
-const app = new Koa();
+const router = new Router();
+demo(router);
 
-app.use(bodyParser())
-app.use(router.routes(app));
+const app = new Koa();
+app
+  .use(bodyParser())
+  .use(router.routes())
+  .use(router.allowedMethods());
 
 app.listen(3003)
 
